@@ -29,3 +29,9 @@ exports.openInventory = () => {
   // Load the inventory.html of the app
   win.loadURL(`file://${__dirname}/inventory.html`);
 }
+
+// Map interface
+exports.openInventory = () => {
+  // Load the map.html of the app
+  win.loadURL(`file://${__dirname}/map.html`);
+}
