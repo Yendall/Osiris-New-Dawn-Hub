@@ -1,3 +1,22 @@
+h1 {
+	font-family: 'Bungee', cursive;
+	font-size: 50px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 200;
+	line-height: 26.4px;
+	text-align: center;
+}
+h2 {
+	font-family: 'Bungee', cursive;
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 26.4px;
+	text-align: center;
+}
+
 *{
 	margin:0;
 	padding:0;
@@ -20,10 +39,6 @@ body{
 a, a:visited, a:hover{
 	color:#fff;
 	text-decoration: none;
-}
-h1 {
-	text-align: center;
-	
 }
 
 /* Stats */
