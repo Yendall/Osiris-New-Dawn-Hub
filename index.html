@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Osiris: New Dawn Hub</title>
+    <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
     <link rel="stylesheet" href="./css/jquery.flipster.min.css">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/buttons.css">
+    <!-- Scripts -->
+    <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
+    <script src="./js/jquery.flipster.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script>require('./main.js')</script>
 </head>
 
 <body>
@@ -41,10 +48,10 @@
 
   	<div class="grid_3">
   		<div class="fmcircle_out">
-  			<a href="#building">
+  			<a id="building">
   				<div class="fmcircle_border">
   					<div class="fmcircle_in fmcircle_lightblue">
-  						<span>Build Catalogue</span><img src="./assets/images/tools.png" alt="" />
+  						<span>Build and Craft</span><img src="./assets/images/tools.png" alt="" />
   					</div>
   				</div>
   			</a>
@@ -52,9 +59,5 @@
   	</div>
   </div>
 <br>
-
-<script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
-<script src="./js/jquery.flipster.min.js"></script>
-<script src="./js/script.js"></script>
 </body>
 </html>
