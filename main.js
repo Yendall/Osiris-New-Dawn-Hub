@@ -10,11 +10,11 @@ app.on('window-all-closed', function() {
 
 // Set global model
 global.craftables = JSON.parse(
-  fs.readFileSync('./model/assets/json/craftables.json','utf-8'));
+  fs.readFileSync(__dirname + '/model/assets/json/craftables.json','utf-8'));
 global.structures = JSON.parse(
-  fs.readFileSync('./model/assets/json/structures.json','utf-8'));
+  fs.readFileSync(__dirname + '/model/assets/json/structures.json','utf-8'));
 global.vehicles = JSON.parse(
-  fs.readFileSync('./model/assets/json/vehicles.json','utf-8'));
+  fs.readFileSync(__dirname + '/model/assets/json/vehicles.json','utf-8'));
 global.craftingType = "None";
 
 var win = null;
@@ -39,7 +39,7 @@ exports.openCrafting = () => {
 }
 
 // Individual Crafting interface
-exports.openCraftingIndv = (type) => {
+exports.openCraftingIndv = () => {
   // Load the crafting_individual.html of the app
   win.loadURL(`file://${__dirname}/view/crafting.html`);
 }

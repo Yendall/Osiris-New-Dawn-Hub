@@ -41,7 +41,7 @@ function main_func()
     for(var i=0; i<keys.length; i++) {
       for(var j=0; j<model[keys[i]].length; j++)
       {
-        console.log(model[keys[i]][j].name);
+        setupTable(tbody,model[keys[i]][j],type,icon_path);
       }
     }
   }
@@ -54,7 +54,7 @@ function setupMaterials(tr,tbody,model,type,icon_path)
   for(var i=0; i<model['materials'].length; i++)
   {
       var img_path =
-        type+'/Icon_'+model['materials'][i].replace(/\s/g,'')+'.png';
+        'craftables'+'/Icon_'+model['materials'][i].replace(/\s/g,'')+'.png';
       var p_mat = document.createElement('p');
       var img_mat = document.createElement('img');
       var span_mat = document.createElement('span');
@@ -86,6 +86,7 @@ function setupTable(tbody,model,type,icon_path)
   var img_path =
    type+'/Icon_'+model.name.replace(/\s/g,'')+'.png';
   td_name.setAttribute('class','text-left');
+  td_name.setAttribute('id','craft_name');
   p_name.setAttribute('class','material-row');
   img_name.setAttribute('class','name-image');
   img_name.setAttribute('height','60');
@@ -99,3 +100,16 @@ function setupTable(tbody,model,type,icon_path)
   tr.appendChild(td_name);
   setupMaterials(tr,tbody,model,type,icon_path);
 }
+// JQUERY Search function to filter rows
+var $rows = $('#details_table tr');
+$('#search').keyup(function() {
+
+    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
+        reg = RegExp(val, 'i'),
+        text;
+
+    $rows.show().filter(function() {
+        text = $(this).text().replace(/\s+/g, ' ');
+        return !reg.test(text);
+    }).hide();
+});
