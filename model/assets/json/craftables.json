@@ -16,7 +16,7 @@
          },
          {
             "name":"Glass",
-            "materials":"Sand",
+            "materials":["Sand"],
             "amount":[
                2
             ]
@@ -45,7 +45,7 @@
          },
          {
             "name":"Steel x2",
-            "materials":"Barrel",
+            "materials":["Barrel"],
             "amount":[
                1
             ]
