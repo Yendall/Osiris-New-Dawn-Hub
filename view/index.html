@@ -7,16 +7,9 @@
     <title>Osiris: New Dawn Hub</title>
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
-    <link rel="stylesheet" href="./css/jquery.flipster.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/buttons.css">
-    <!-- Scripts -->
-    <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
-    <script src="./js/jquery.flipster.min.js"></script>
-    <script src="./js/index.js"></script>
-    <script>require('./main.js')</script>
+    <link rel="stylesheet" href="../model/css/styles.css">
+    <link rel="stylesheet" href="../model/css/buttons.css">
 </head>
-
 <body>
   <br>
   <h1>Osiris: New Dawn</h1><br><br>
@@ -27,7 +20,7 @@
   			<a id="inventory">
   				<div class="fmcircle_border">
   					<div class="fmcircle_in fmcircle_lightblue">
-  						<span>Inventory</span><img src="./assets/images/backpack.png" alt="" />
+  						<span>Inventory</span><img src="../model/assets/images/backpack.png" alt="" />
   					</div>
   				</div>
   			</a>
@@ -39,7 +32,7 @@
   			<a id="map">
   				<div class="fmcircle_border">
   					<div class="fmcircle_in fmcircle_lightblue">
-  						<span>Map</span><img src="./assets/images/map2.png" alt="" />
+  						<span>Map</span><img src="../model/assets/images/map2.png" alt="" />
   					</div>
   				</div>
   			</a>
@@ -51,7 +44,7 @@
   			<a id="building">
   				<div class="fmcircle_border">
   					<div class="fmcircle_in fmcircle_lightblue">
-  						<span>Build and Craft</span><img src="./assets/images/tools.png" alt="" />
+  						<span>Build and Craft</span><img src="../model/assets/images/tools.png" alt="" />
   					</div>
   				</div>
   			</a>
@@ -59,5 +52,10 @@
   	</div>
   </div>
 <br>
+
+<!-- Scripts -->
+<script>window.$ = window.jQuery = require('../model/js/jquery.min.js');</script>
+<script src="../controller/index.js"></script>
+<script>require('../main.js')</script>
 </body>
 </html>
