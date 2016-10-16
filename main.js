@@ -15,6 +15,7 @@ global.structures = JSON.parse(
   fs.readFileSync('./model/assets/json/structures.json','utf-8'));
 global.vehicles = JSON.parse(
   fs.readFileSync('./model/assets/json/vehicles.json','utf-8'));
+global.craftingType = "None";
 
 var win = null;
 // Called when Electron has finished
@@ -26,9 +27,20 @@ app.on('ready', () => {
   win.loadURL(`file://${__dirname}/view/index.html`);
 });
 
+// Setter for crafting type
+exports.setCraftingType = (type) => {
+  global.craftingType = type;
+}
+
 // Crafting interface
 exports.openCrafting = () => {
-  // Load the crafting.html of the app
+  // Load the crafting_landing.html of the app
+  win.loadURL(`file://${__dirname}/view/crafting_landing.html`);
+}
+
+// Individual Crafting interface
+exports.openCraftingIndv = (type) => {
+  // Load the crafting_individual.html of the app
   win.loadURL(`file://${__dirname}/view/crafting.html`);
 }
 
@@ -39,7 +51,7 @@ exports.openInventory = () => {
 }
 
 // Map interface
-exports.openInventory = () => {
+exports.openMap = () => {
   // Load the map.html of the app
   win.loadURL(`file://${__dirname}/view/map.html`);
 }

@@ -1,6 +1,6 @@
 {
    "craftables":{
-      "Forge":[
+      "forge":[
          {
             "name":"Steel",
             "materials":[
@@ -112,7 +112,7 @@
             ]
          }
       ],
-      "Chemistry Table":[
+      "chemistry table":[
          {
             "name":"Rubber",
             "materials":[
@@ -233,7 +233,7 @@
             ]
          }
       ],
-      "Fabricator":[
+      "fabricator":[
          {
             "name":"Wire",
             "materials":[
