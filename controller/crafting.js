@@ -37,7 +37,6 @@ function main_func()
         setupTable(tbody,model[type][keys[i]][j],type,icon_path);
       }
     }
-    console.log(tbody);
   }else {
     for(var i=0; i<keys.length; i++) {
       for(var j=0; j<model[keys[i]].length; j++)
@@ -52,10 +51,8 @@ function setupMaterials(tr,tbody,model,type,icon_path)
 {
   var td_mat = document.createElement('td');
   td_mat.setAttribute('class','text-left');
-  console.log(model['materials'].length);
   for(var i=0; i<model['materials'].length; i++)
   {
-    console.log(i);
       var img_path =
         type+'/Icon_'+model['materials'][i].replace(/\s/g,'')+'.png';
       var p_mat = document.createElement('p');
