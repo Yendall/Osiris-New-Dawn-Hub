@@ -1,4 +1,4 @@
-# Osiris-New-Dawn-Manager
+# Osiris: New-Dawn Manager
 An interactive Electron application for glances at Osiris: New Dawn information
 
 Main Interface
