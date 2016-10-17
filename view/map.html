@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Osiris: New Dawn Hub - Crafting</title>
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <link rel="stylesheet" href="../model/css/styles.css">
+    <link rel="stylesheet" href="../model/css/buttons.css">
+</head>
+<body>
+  <ul class="topnav" id="myTopnav">
+  <li><a href="index.html">Home</a></li>
+  </ul>
+  <div class="table-title"><br>
+  <h2>Resource Map</h2><br>
+  <input type="text" id="search" placeholder="Search...">
+  </div>
+  <table class="table-fill" id="details_table">
+  <thead id="header">
+  <tr>
+  <th class="text-center">Name</th>
+  <th class="text-center">Latitude</th>
+  <th class="text-center">Longitude</th>
+  </tr>
+  </thead>
+  <tbody class="table-hover" id="table_body">
+  </tbody>
+  </table>
+</body>
+
+<!-- Scripts -->
+<script>require('../main.js')</script>
+<script>window.$ = window.jQuery = require('../model/js/jquery.min.js');</script>
+<script src="../controller/map.js"></script>
+</html>

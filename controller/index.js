@@ -6,4 +6,7 @@ $( () => {
     $('#building').click(() => {
       main.openCrafting();
     })
+    $('#map').click(() => {
+      main.openMap();
+    })
 });

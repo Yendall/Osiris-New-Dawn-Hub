@@ -1,12 +1,7 @@
 const electron = require('electron')
 const {app,BrowserWindow} = electron;
 const fs = require('fs');
-// Quit when all windows are closed.
-app.on('window-all-closed', function() {
-  if (process.platform != 'darwin') {
-    app.quit();
-  }
-});
+
 
 // Set global model
 global.craftables = JSON.parse(
@@ -15,6 +10,8 @@ global.structures = JSON.parse(
   fs.readFileSync(__dirname + '/model/assets/json/structures.json','utf-8'));
 global.vehicles = JSON.parse(
   fs.readFileSync(__dirname + '/model/assets/json/vehicles.json','utf-8'));
+global.resources = JSON.parse(
+  fs.readFileSync(__dirname + '/model/assets/json/resources.json','utf-8'));
 global.craftingType = "None";
 
 var win = null;
@@ -22,9 +19,16 @@ var win = null;
 // initialization and is ready to create all windows
 app.on('ready', () => {
   // Create the index window
-  win = new BrowserWindow({width: 1000, height: 625});
+  win = new BrowserWindow({width: 1000, height: 625, backgroundColor: '#4c516d'});
   // Load the index.html of the app.
   win.loadURL(`file://${__dirname}/view/index.html`);
+});
+
+// Quit when all windows are closed.
+app.on('window-all-closed', () => {
+  if (process.platform != 'darwin') {
+    app.quit();
+  }
 });
 
 // Setter for crafting type
@@ -45,9 +49,9 @@ exports.openCraftingIndv = () => {
 }
 
 // Inventory interface
-exports.openInventory = () => {
+exports.openServerInformation = () => {
   // Load the inventory.html of the app
-  win.loadURL(`file://${__dirname}/view/inventory.html`);
+  win.loadURL(`file://${__dirname}/view/serverinfo.html`);
 }
 
 // Map interface
