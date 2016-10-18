@@ -9,4 +9,7 @@ $( () => {
     $('#map').click(() => {
       main.openMap();
     })
+    $('#serverinfo').click(() => {
+      main.openServerInformation();
+    })
 });

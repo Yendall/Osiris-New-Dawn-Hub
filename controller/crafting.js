@@ -113,3 +113,10 @@ $('#search').keyup(function() {
         return !reg.test(text);
     }).hide();
 });
+
+$(document).ready(function(){
+    $('#serverinfo').load("../model/assets/json/serverinfo.csv");
+    setInterval(function(){
+        $('#serverinfo').load("../model/assets/json/serverinfo.csv");
+    },1000);
+});
