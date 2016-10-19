@@ -36,15 +36,4 @@
 <script>window.$ = window.jQuery = require('../model/js/jquery.min.js');</script>
 <script src="../controller/serverinfo.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
-<script>
-  // Initialise Firebase
-  var config = {
-    apiKey: "AIzaSyCcVtmKGwLCxWDtaK-2iLlFdKpC53Dzrog",
-    authDomain: "playerlocations-a8b22.firebaseapp.com",
-    databaseURL: "https://playerlocations-a8b22.firebaseio.com",
-    storageBucket: "playerlocations-a8b22.appspot.com",
-    messagingSenderId: "927763555209"
-  };
-  firebase.initializeApp(config);
-  var database = firebase.database();
-</script>
+<script>reuire('../model/js/firebase_ref.js')</script>
