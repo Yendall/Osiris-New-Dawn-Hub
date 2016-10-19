@@ -10,11 +10,26 @@ const remote = require('electron').remote;
 const main = remote.require('./main.js');
 
 // Start procedures
-main_func();
+$(document).ready(function()
+{
+  main_func();
+  // Function:  JQUERY Search function to filter rows based on user query
+  // @return:   Filtered rows
+  var $rows = $('#details_table tr');
+  $('#search').keyup(function() {
+      var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
+          reg = RegExp(val, 'i'),
+          text;
+      $rows.show().filter(function() {
+          text = $(this).text().replace(/\s+/g, ' ');
+          return !reg.test(text);
+      }).hide();
+  });
+});
 
 // Function:  Sets up crafting table details
 // @return:   Displayed crafting details in table
-function main_func()
+main_func = () =>
 {
   // Fetch type of crafting
   var type = remote.getGlobal('craftingType');
@@ -59,7 +74,7 @@ function main_func()
 
 // Function:  Sets up crafting material table details
 // @return:   Displayed crafting material details in table
-function setupMaterials(tr,tbody,model,type,icon_path)
+setupMaterials = (tr,tbody,model,type,icon_path) =>
 {
   var td_mat = document.createElement('td');
   td_mat.setAttribute('class','text-left');
@@ -88,7 +103,7 @@ function setupMaterials(tr,tbody,model,type,icon_path)
 
 // Function:  Sets up crafting table details
 // @return:   Displayed crafting details in table
-function setupTable(tbody,model,type,icon_path)
+setupTable = (tbody,model,type,icon_path) =>
 {
   // Set TR and TD elements
   var tr = document.createElement('tr');
@@ -113,15 +128,3 @@ function setupTable(tbody,model,type,icon_path)
   tr.appendChild(td_name);
   setupMaterials(tr,tbody,model,type,icon_path);
 }
-// Function:  JQUERY Search function to filter rows based on user query
-// @return:   Filtered rows
-var $rows = $('#details_table tr');
-$('#search').keyup(function() {
-    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
-        reg = RegExp(val, 'i'),
-        text;
-    $rows.show().filter(function() {
-        text = $(this).text().replace(/\s+/g, ' ');
-        return !reg.test(text);
-    }).hide();
-});

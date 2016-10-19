@@ -10,11 +10,25 @@ const remote = require('electron').remote;
 const main = remote.require('./main.js');
 
 // Start procedures
-main_func();
-
+$(document).ready(function()
+{
+  main_func();
+  // Function:  JQUERY Search function to filter rows based on user query
+  // @return:   Filtered rows
+  var $rows = $('#details_table tr');
+  $('#search').keyup(function() {
+      var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
+          reg = RegExp(val, 'i'),
+          text;
+      $rows.show().filter(function() {
+          text = $(this).text().replace(/\s+/g, ' ');
+          return !reg.test(text);
+      }).hide();
+  });
+});
 // Function:  Sets up resource table details
 // @return:   Displayed resource details in table
-function main_func()
+main_func = () =>
 {
   // Fetch type of crafting
   var type = remote.getGlobal('craftingType');
@@ -37,7 +51,7 @@ function main_func()
 // Function:  Sets up resource materials in table element
 // @params:   tr: table row, tbody: table body, model: resources, type: sub-class
 // @return:   Displayed resource details in table
-function setupMaterials(tr,tbody,model,type)
+setupMaterials = (tr,tbody,model,type) =>
 {
   var td_lat = document.createElement('td');
   td_lat.setAttribute('class','text-center');
@@ -74,7 +88,7 @@ function setupMaterials(tr,tbody,model,type)
 // @params:   tbody: table body, model: resources, type: sub-class, icon_path
 //            absolute path
 // @return:   Displayed resource details in table
-function setupTable(tbody,model,type,icon_path)
+setupTable = (tbody,model,type,icon_path) =>
 {
   // Set TR and TD elements
   var tr = document.createElement('tr');
@@ -99,16 +113,3 @@ function setupTable(tbody,model,type,icon_path)
   tr.appendChild(td_name);
   setupMaterials(tr,tbody,model,type);
 }
-
-// Function:  JQUERY Search function to filter rows based on user query
-// @return:   Filtered rows
-var $rows = $('#details_table tr');
-$('#search').keyup(function() {
-    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
-        reg = RegExp(val, 'i'),
-        text;
-    $rows.show().filter(function() {
-        text = $(this).text().replace(/\s+/g, ' ');
-        return !reg.test(text);
-    }).hide();
-});
