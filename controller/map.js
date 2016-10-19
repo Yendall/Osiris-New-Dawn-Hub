@@ -1,3 +1,11 @@
+/**
+ * @file    map.js
+ * @type    Controller
+ * @author  Max Yendall
+ * @desc    Controls population of resource locations
+ *
+ */
+
 const remote = require('electron').remote;
 const main = remote.require('./main.js');
 
