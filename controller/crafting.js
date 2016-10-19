@@ -1,9 +1,19 @@
+/**
+ * @file    crafting.js
+ * @type    Controller
+ * @author  Max Yendall
+ * @desc    Controls population of crafting tables and search querying
+ *
+ */
+
 const remote = require('electron').remote;
 const main = remote.require('./main.js');
 
 // Start procedures
 main_func();
 
+// Function:  Sets up crafting table details
+// @return:   Displayed crafting details in table
 function main_func()
 {
   // Fetch type of crafting
@@ -47,6 +57,8 @@ function main_func()
   }
 }
 
+// Function:  Sets up crafting material table details
+// @return:   Displayed crafting material details in table
 function setupMaterials(tr,tbody,model,type,icon_path)
 {
   var td_mat = document.createElement('td');
@@ -71,10 +83,11 @@ function setupMaterials(tr,tbody,model,type,icon_path)
 
   }
   tr.appendChild(td_mat);
-  //console.log(tr);
   tbody.appendChild(tr);
 }
 
+// Function:  Sets up crafting table details
+// @return:   Displayed crafting details in table
 function setupTable(tbody,model,type,icon_path)
 {
   // Set TR and TD elements
@@ -100,23 +113,15 @@ function setupTable(tbody,model,type,icon_path)
   tr.appendChild(td_name);
   setupMaterials(tr,tbody,model,type,icon_path);
 }
-// JQUERY Search function to filter rows
+// Function:  JQUERY Search function to filter rows based on user query
+// @return:   Filtered rows
 var $rows = $('#details_table tr');
 $('#search').keyup(function() {
-
     var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
         reg = RegExp(val, 'i'),
         text;
-
     $rows.show().filter(function() {
         text = $(this).text().replace(/\s+/g, ' ');
         return !reg.test(text);
     }).hide();
-});
-
-$(document).ready(function(){
-    $('#serverinfo').load("../model/assets/json/serverinfo.csv");
-    setInterval(function(){
-        $('#serverinfo').load("../model/assets/json/serverinfo.csv");
-    },1000);
 });

@@ -1,7 +1,14 @@
+/**
+ * @file    main.js
+ * @type    Controller
+ * @author  Max Yendall
+ * @desc    Main Electron interface for accessing all global models and interfaces
+ *
+ */
+
 const electron = require('electron')
 const {app,BrowserWindow} = electron;
 const fs = require('fs');
-
 
 // Set global model
 global.craftables = JSON.parse(

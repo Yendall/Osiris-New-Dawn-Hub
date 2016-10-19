@@ -4,6 +4,8 @@ const main = remote.require('./main.js');
 // Start procedures
 main_func();
 
+// Function:  Sets up resource table details
+// @return:   Displayed resource details in table
 function main_func()
 {
   // Fetch type of crafting
@@ -24,6 +26,9 @@ function main_func()
   }
 }
 
+// Function:  Sets up resource materials in table element
+// @params:   tr: table row, tbody: table body, model: resources, type: sub-class
+// @return:   Displayed resource details in table
 function setupMaterials(tr,tbody,model,type)
 {
   var td_lat = document.createElement('td');
@@ -57,6 +62,10 @@ function setupMaterials(tr,tbody,model,type)
   tbody.appendChild(tr);
 }
 
+// Function:  Sets up resource materials in table element
+// @params:   tbody: table body, model: resources, type: sub-class, icon_path
+//            absolute path
+// @return:   Displayed resource details in table
 function setupTable(tbody,model,type,icon_path)
 {
   // Set TR and TD elements
@@ -82,18 +91,16 @@ function setupTable(tbody,model,type,icon_path)
   tr.appendChild(td_name);
   setupMaterials(tr,tbody,model,type);
 }
-// JQUERY Search function to filter rows
+
+// Function:  JQUERY Search function to filter rows based on user query
+// @return:   Filtered rows
 var $rows = $('#details_table tr');
 $('#search').keyup(function() {
-
     var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
         reg = RegExp(val, 'i'),
         text;
     $rows.show().filter(function() {
         text = $(this).text().replace(/\s+/g, ' ');
-
         return !reg.test(text);
     }).hide();
-
-
 });
