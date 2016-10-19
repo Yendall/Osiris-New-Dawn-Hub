@@ -19,7 +19,7 @@ var win = null;
 // initialization and is ready to create all windows
 app.on('ready', () => {
   // Create the index window
-  win = new BrowserWindow({width: 1000, height: 625, backgroundColor: '#4c516d'});
+  win = new BrowserWindow({width: 1000, height: 700, backgroundColor: '#4c516d'});
   // Load the index.html of the app.
   win.loadURL(`file://${__dirname}/view/index.html`);
 });
