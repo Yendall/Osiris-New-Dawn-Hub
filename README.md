@@ -8,10 +8,15 @@ Main Interface
 </p>
 
 Crafting List
+
 ------
+
 <p>
   <img src="https://github.com/Yendall/Osiris-New-Dawn-Manager/blob/master/screenshot_two.png">
 </p>
+
 ------
+
 ###### Copyright (C) 2016 Max Yendall - All Rights Reserved - You may use, distribute and modify this code with requested permission
+
 ------
